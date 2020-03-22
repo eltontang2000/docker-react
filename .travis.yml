@@ -1,0 +1,12 @@
+sudo: required
+services: 
+    - docker     # docker cli pre-installed
+
+before_install
+    - docker build -t elton/docker-react -f Dockerfile.dev .    #  -t : add tag, only used by travis.
+
+script:
+    - docker run elton/docker-react npm run test -- -- coverage
+    
+
+
